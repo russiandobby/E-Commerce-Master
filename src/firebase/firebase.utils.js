@@ -13,6 +13,39 @@ const config = {
     measurementId: "G-0EMB3E1YB1"
   };
 
+  // Get the auth object we get after using sign in and store in our database
+  export const createUserProfileDocument = async (userAuth,additionalData)=>{
+    // All this will do is create the data/snapshoot
+
+    // if we logout we get null
+    if(!userAuth) return;
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+    const snapShot = await userRef.get();
+    // we get back ether query reference or query snapshot
+    // query ref object does not have actual data, gives details about it or method to get the Snapshot object
+
+    if(!snapShot.exists){
+      // if it doesnt exist we want to create it there so use documentRef object
+      const {displayName,email} = userAuth;
+      const createdAt = new Date();
+
+      try{
+        await userRef.set({
+          displayName,
+          email,
+          createdAt,
+          ...additionalData
+        })
+      }catch(error){
+        console.log('Error creating user',error.message);
+      }
+
+    }
+      return userRef;
+
+  };
+
+
   firebase.initializeApp(config);
 
   export const auth = firebase.auth();
