@@ -24,6 +24,7 @@ class App extends React.Component {
 
   componentDidMount(){
     // as long as component mounted this connection to firebase is open
+    // parameter is what the user state of the auth on firebase
    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
      
       // createUserProfileDocument(user);
