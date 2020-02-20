@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch,Route} from 'react-router-dom';
+import {Switch,Route,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
@@ -70,13 +70,19 @@ class App extends React.Component {
         <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route  path='/shop' component={ShopPage}/>
-        <Route  path='/signin' component={SingInAndSignUpPage}/>
+        {/* if we have anything in user stata aka someone loged in we want to redirect back to homepage */}
+        <Route  exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/'  />) : (<SingInAndSignUpPage/>)}  />
         </Switch>
       </div>
     );
   }
 
 }
+// need currentuser so we can know if we need to redirect
+// distructure user reducer
+const mapStateToProps = ({user}) =>({
+  currentUser:user.currentUser
+})
 
 const mapDispatchToProps  = dispatch =>({
   // dispatch is way for redux to know that what object we passing it is an action object that i am gonna pass to every reducer
@@ -88,4 +94,4 @@ const mapDispatchToProps  = dispatch =>({
 });
 
 // App doesnt need state as it only sets it but doesnt use it in anyway
-export default connect (null , mapDispatchToProps) (App);
+export default connect (mapStateToProps , mapDispatchToProps) (App);
