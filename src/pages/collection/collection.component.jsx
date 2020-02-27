@@ -8,13 +8,21 @@ import './collection.styles.scss';
 
 const CollectionPage = ({collection}) =>
 {
-    console.log(collection);
+    const {title,items} = collection;
+    // console.log(collection);
     return(
     // will return an object with categoryId field = to wha route we want like /hats or /jackets
     //match.params.collectionId
     
-    <div className='category'>
-        <h2>Collection Page </h2>
+    <div className='collection-page'>
+        <h2 className='title'>{title}</h2>
+        <div className='items'>
+            {
+                items.map(item => (
+                    <CollectionItem key={item.id} item={item} />
+                ))
+            }
+        </div>
     </div>
 );}
 
