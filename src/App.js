@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {Switch,Route,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Header from './components/header/header.component';
@@ -12,7 +13,6 @@ import { selectCurrentUser} from './redux/user/user.selectors';
 import {createStructuredSelector} from 'reselect';
 
 import './App.css';
-
 
 
 
