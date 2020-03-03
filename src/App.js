@@ -12,6 +12,7 @@ import {setCurrentUser} from './redux/user/user.actions';
 import { selectCurrentUser} from './redux/user/user.selectors';
 import {createStructuredSelector} from 'reselect';
 
+
 import './App.css';
 
 
@@ -53,9 +54,14 @@ class App extends React.Component {
        
       }
       // otherwise we set user back to null when we sign out
-      else{
+     
         setCurrentUser(userAuth);
-      }
+        // we dont want to pass id or path so will need a new array
+        // addCollectionAndDocuments('collections',collectionArray.map(({title,items})=>({
+        //   title,
+        //   items
+        // })));
+      
       
     })
   }
@@ -86,6 +92,7 @@ class App extends React.Component {
 // distructure user reducer
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
+  
 })
 
 const mapDispatchToProps  = dispatch =>({
