@@ -24,7 +24,8 @@ const CollectionPage = ({collection}) =>
             }
         </div>
     </div>
-);}
+);
+}
 
 // ownProps props of the component we wrapping in our connect
 // Need to pass state cause unline other selectors this one
