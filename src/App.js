@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import styled from 'styled-components';
 import {Switch,Route,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -18,7 +18,13 @@ import './App.css';
 
 
 
-class App extends React.Component {
+const App =({checkUserSession,currentUser})=> {
+  useEffect(()=>{
+    checkUserSession()
+  },[checkUserSession]);
+
+
+
   // constructor(){
   //   super();
   //   this.state ={
@@ -27,58 +33,49 @@ class App extends React.Component {
   // }
 
   // need to close connection when unmount
-  unsubscribeFromAuth = null;
+ 
 
-  componentDidMount(){
-    const {checkUserSession}=this.props;
-    checkUserSession();
-
-
-    // as long as component mounted this connection to firebase is open
-    // parameter is what the user state of the auth on firebase
-
-
-  //  this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  // componentDidMount(){
+  //   checkUserSession();
+  //   // as long as component mounted this connection to firebase is open
+  //   // parameter is what the user state of the auth on firebase
+  // //  this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
      
-  //     // createUserProfileDocument(user);
-  //     // if return is not null
-  //     if(userAuth){
-  //       const userRef = await createUserProfileDocument(userAuth);
+  // //     // createUserProfileDocument(user);
+  // //     // if return is not null
+  // //     if(userAuth){
+  // //       const userRef = await createUserProfileDocument(userAuth);
 
-  //       // will send back a snapshot of data stored in out database currently
-  //       // get it from our document reference object, also lets us get properties
-  //       userRef.onSnapshot(snapShot =>{
-  //         // console.log(snapShot.data());
-  //         setCurrentUser({
+  // //       // will send back a snapshot of data stored in out database currently
+  // //       // get it from our document reference object, also lets us get properties
+  // //       userRef.onSnapshot(snapShot =>{
+  // //         // console.log(snapShot.data());
+  // //         setCurrentUser({
             
-  //             id:snapShot.id,
-  //             ...snapShot.data()
+  // //             id:snapShot.id,
+  // //             ...snapShot.data()
             
-  //         });
+  // //         });
           
-  //       });
+  // //       });
        
-  //     }
-  //     // otherwise we set user back to null when we sign out
+  // //     }
+  // //     // otherwise we set user back to null when we sign out
      
-  //       setCurrentUser(userAuth);
-  //       // we dont want to pass id or path so will need a new array
-  //       // addCollectionAndDocuments('collections',collectionArray.map(({title,items})=>({
-  //       //   title,
-  //       //   items
-  //       // })));
-      
-      
-  //   })
-  }
-  componentWillUnmount(){
-    this.unsubscribeFromAuth();
-  }
+  // //       setCurrentUser(userAuth);
+  // //       // we dont want to pass id or path so will need a new array
+  // //       // addCollectionAndDocuments('collections',collectionArray.map(({title,items})=>({
+  // //       //   title,
+  // //       //   items
+  // //       // })));   
+  // //   })
+  // }
 
 
 
 
-  render(){
+
+
     return (
       <div className="App">
         <Header/>
@@ -87,13 +84,13 @@ class App extends React.Component {
         <Route  path='/shop' component={ShopPage}/>
         <Route  exact path='/checkout' component={CheckoutPage}/>
         {/* if we have anything in user stata aka someone loged in we want to redirect back to homepage */}
-        <Route  exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/'  />) : (<SingInAndSignUpPage/>)}  />
+        <Route  exact path='/signin' render={() => currentUser ? (<Redirect to='/'  />) : (<SingInAndSignUpPage/>)}  />
         </Switch>
       </div>
     );
   }
 
-}
+
 // need currentuser so we can know if we need to redirect
 // distructure user reducer
 const mapStateToProps = createStructuredSelector({

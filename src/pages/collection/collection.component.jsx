@@ -8,6 +8,16 @@ import './collection.styles.scss';
 
 const CollectionPage = ({collection}) =>
 {
+    // useEffect(()=>{
+    //     console.log('I am subscribing!');
+    //     const unsubscribeFromCollections = firestore.collection('collections').onSnapshot(async snapshot => console.log(snapshot));
+
+    //     // cleacnup functon mimics componentwillunmount
+    //     return ()=>{
+    //         console.log('I am unsubscribing!');
+    //         unsubscribeFromCollections();
+    //     }
+    // },[]);
     const {title,items} = collection;
     // console.log(collection);
     return(

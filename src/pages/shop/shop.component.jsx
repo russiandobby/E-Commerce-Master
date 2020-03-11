@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -14,38 +14,43 @@ import CollectionsOverviewContainer from '../../components/collections-overview/
 // const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 
-class ShopPage extends React.Component {
-  componentDidMount() {
-    const { fetchCollectionsStart } = this.props;
+const ShopPage =({ fetchCollectionsStart,match })=> {
+
+  useEffect(()=>{
     fetchCollectionsStart();
+  },[fetchCollectionsStart]);
 
-    // const { updateCollections } = this.props;
-    // const collectionRef = firestore.collection("collections");
-    // // get this data now
-    // // when ever collection gets updated/changed we will get the snapshoot
-    // collectionRef.onSnapshot(async snapshot => {
-    //   // will need to transform data into right format and add missing pieces like route
-    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    //   updateCollections(collectionsMap);
-    //   this.setState({ loading: false });
-    // });
+  // componentDidMount() {
+    
+  //   fetchCollectionsStart();
 
-    //  Promise Style Note:we will only get new data when we remount our shop
-    // collectionRef.get().then( snapshot => {
+  //   // const { updateCollections } = this.props;
+  //   // const collectionRef = firestore.collection("collections");
+  //   // // get this data now
+  //   // // when ever collection gets updated/changed we will get the snapshoot
+  //   // collectionRef.onSnapshot(async snapshot => {
+  //   //   // will need to transform data into right format and add missing pieces like route
+  //   //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+  //   //   updateCollections(collectionsMap);
+  //   //   this.setState({ loading: false });
+  //   // });
 
-    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    //   updateCollections(collectionsMap);
-    //   this.setState({ loading: false });
-    // });
+  //   //  Promise Style Note:we will only get new data when we remount our shop
+  //   // collectionRef.get().then( snapshot => {
 
-    // Fetch Pattern caan get objects but its extremely nested
-    // fetch('https://firestore.googleapis.com/v1/projects/e-store-b69d6/databases/(default)/documents/collections')
-    // .then(response => response.json())
-    // .then(collections => console.log(collections));
-  }
+  //   //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+  //   //   updateCollections(collectionsMap);
+  //   //   this.setState({ loading: false });
+  //   // });
 
-  render() {
-    const { match } = this.props;
+  //   // Fetch Pattern caan get objects but its extremely nested
+  //   // fetch('https://firestore.googleapis.com/v1/projects/e-store-b69d6/databases/(default)/documents/collections')
+  //   // .then(response => response.json())
+  //   // .then(collections => console.log(collections));
+  // }
+
+  
+    // const { match } = this.props;
 
     return (
       // match.path will give us /path
@@ -67,7 +72,7 @@ class ShopPage extends React.Component {
       </div>
     );
   }
-}
+
 
 
 

@@ -28,6 +28,7 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
+    // convert object into array so we can map over it/ object.keys gives us all the keys of object in array form
     collections =>collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 

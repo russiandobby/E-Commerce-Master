@@ -92,6 +92,7 @@ export const getCurrentUser = () => {
   return new Promise((resolve,reject) => {
     // onauthstatechanged takes a function where parameter is what user state is
     const unsubscribe = auth.onAuthStateChanged(userAuth =>{
+      console.log(userAuth);
       unsubscribe();
       resolve(userAuth);
     },reject)
