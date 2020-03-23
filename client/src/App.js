@@ -8,13 +8,14 @@ import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import SingInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
+import {GlobalStyle} from './global.style';
 
 import { selectCurrentUser} from './redux/user/user.selectors';
 import {checkUserSession} from './redux/user/user.actions';
 import {createStructuredSelector} from 'reselect';
 
 
-import './App.css';
+
 
 
 
@@ -78,6 +79,7 @@ const App =({checkUserSession,currentUser})=> {
 
     return (
       <div className="App">
+        <GlobalStyle />
         <Header/>
         <Switch>
         <Route exact path='/' component={HomePage}/>

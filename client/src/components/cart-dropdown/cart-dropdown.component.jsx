@@ -1,34 +1,43 @@
 import React from 'react';
-import CustomButton from '../custom-button/custom-button.component';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
+
 import CartItem from '../cart-item/cart-item.component';
-import {withRouter} from 'react-router-dom';
-import {toggleCartHidden} from '../../redux/cart/cart.actions';
-import {selectCartItems} from '../../redux/cart/cart.selectors';
-import {createStructuredSelector} from 'reselect';
-import {connect} from 'react-redux';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
+import { toggleCartHidden } from '../../redux/cart/cart.actions.js';
 
-import './cart-dropdown.styles.scss';
-// dont need to write mapdispatchtoprops, can pass it in 
-const CartDropdown = ({cartItems,history , dispatch}) =>(
-    <div className='cart-dropdown'>
-        <div className='cart-items'>
-            {
-            cartItems.length ?    
-            cartItems.map(cartItem => (<CartItem key={cartItem.id} item={cartItem} />))
-            :
-            <span className='empty-message'>Your Cart is Empty</span>
-            }
-        </div>
-        <CustomButton onClick={()=>{
-            history.push('/checkout');
-            dispatch(toggleCartHidden());
-            }} >GO TO CHECKOUT</CustomButton>
-    </div>
-)
+import {
+  CartDropdownContainer,
+  CartDropdownButton,
+  EmptyMessageContainer,
+  CartItemsContainer
+} from './cart-dropdown.styles';
 
-// {cart:{cartItems}}
+const CartDropdown = ({ cartItems, history, dispatch }) => (
+  <CartDropdownContainer>
+    <CartItemsContainer>
+      {cartItems.length ? (
+        cartItems.map(cartItem => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
+      ) : (
+        <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+      )}
+    </CartItemsContainer>
+    <CartDropdownButton
+      onClick={() => {
+        history.push('/checkout');
+        dispatch(toggleCartHidden());
+      }}
+    >
+      GO TO CHECKOUT
+    </CartDropdownButton>
+  </CartDropdownContainer>
+);
+
 const mapStateToProps = createStructuredSelector({
-cartItems:selectCartItems
+  cartItems: selectCartItems
 });
 
-export default withRouter(connect(mapStateToProps) (CartDropdown));
+export default withRouter(connect(mapStateToProps)(CartDropdown));
