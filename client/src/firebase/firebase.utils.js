@@ -53,6 +53,44 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 };
 
+export const viewEmailMessage = () =>{
+  const messageRef = firestore.collection('messages');
+  const snapshot = messageRef.get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+});
+
+  console.log('In fire store!');
+  console.log(messageRef);
+  console.log(snapshot);
+}
+
+
+export const addEmailMessage =({name, email, company, phone,message,date},callback)=>{
+  
+  firestore.collection("messages").add({
+    name: name,
+    company: email,
+    email: company,
+    phone: phone,
+    message:message,
+    date:date
+})
+.then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+    callback(true);
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+    callback(false);
+});
+
+}
+
+
+
 export const addCollectionAndDocuments =async (collectionKey,objectsToAdd)=>{
   // create collection
   const collectionRef = firestore.collection(collectionKey);
