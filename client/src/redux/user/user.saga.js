@@ -3,7 +3,7 @@ import UserActionTypes from './user.types';
 import {signInSuccess,signInFailure,signOutSuccess,signOutFailure,signUpSuccess,signUpFailure} from './user.actions';
 
 import {auth,googleProvider,createUserProfileDocument,getCurrentUser} from '../../firebase/firebase.utils';
-import signInComponent from '../../components/sign-in/sign-in.component';
+
 
 // reusable generator function
 export function* getSnapshotFromUserAuth(userAuth,additionalData){

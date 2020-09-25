@@ -1,0 +1,62 @@
+.pop-up-main {
+  position: absolute;
+  /*important*/
+  top: 50%;
+  /*position Y halfway in*/
+  left: 50%;
+  /*position X halfway in*/
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /*move it halfway back(x,y)*/
+  width: 300px;
+  /*any width*/
+  height: 100px;
+  /*any height*/
+  background: #1ffff8;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: fadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Firefox < 16 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+  animation: fadein 3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+
+/* Opera < 12.1 */
+/*# sourceMappingURL=pop-up.styles.css.map */

@@ -32,4 +32,11 @@ export const PreviewContainer = styled.div`
     grid-gap:15px;
     
   }
+
+  @media screen and (max-width:300px){
+    display:grid;
+    grid-template-columns:1fr;
+    grid-gap:15px;
+    
+  }
 `;

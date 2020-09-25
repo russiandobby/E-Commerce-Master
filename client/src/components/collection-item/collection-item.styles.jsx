@@ -5,14 +5,19 @@ export const CollectionItemContainer = styled.div`
   width: 22vw;
   display: flex;
   flex-direction: column;
+  
   height: 350px;
   align-items: center;
   position: relative;
-
+  
+  .image{
+    transition: opacity .25s ease-in-out;
+  }
 
   &:hover {
     .image {
       opacity: 0.8;
+      
     }
 
     button {
@@ -20,6 +25,9 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  
+
 
   @media screen and (max-width:800px){
     width:40vw;
@@ -35,6 +43,11 @@ export const CollectionItemContainer = styled.div`
       }
     }
   }
+  @media screen and (max-width:300px){
+    width:80vw;
+  }
+
+
 `;
 
 export const AddButton = styled(CustomButton)`

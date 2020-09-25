@@ -28,6 +28,13 @@ export const LogoContainer = styled(Link)`
     padding:0;
     padding-top:10px;
 }
+@media screen and (min-width:1024px){
+  svg{
+    transform: scale(4.0);
+    
+  }
+}
+
 `;
 
 export const OptionsContainer = styled.div`
@@ -46,11 +53,26 @@ export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 
-  @media screen and (max-width:1024px) and (min-width:768px) {
+  &:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px #000000;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:hover:after{
+    transform: scaleX(1);
+  }
+
+@media screen and (max-width:1024px) and (min-width:768px) {
     font-size: 2rem;
 }
 @media screen and (max-width:360px)  {
   font-size:0.9rem;
+}
+@media screen and (min-width:1024px)  {
+  font-size:2rem;
 }
   
 `;
