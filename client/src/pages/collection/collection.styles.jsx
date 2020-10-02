@@ -11,11 +11,27 @@ export const CollectionTitle = styled.h2`
 `;
 
 export const CollectionItemsContainer = styled.div`
+  
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items:center;
   grid-gap: 10px;
 
   & > div {
     margin-bottom: 30px;
+  }
+  @media screen and (max-width:900px){
+    grid-template-columns: 1fr 1fr 1fr;
+    
+  }
+
+  @media screen and (max-width:600px){
+    grid-template-columns: 1fr 1fr;
+    
+  }
+
+  @media screen and (max-width:320px){
+    grid-template-columns: 1fr;
+    
   }
 `;

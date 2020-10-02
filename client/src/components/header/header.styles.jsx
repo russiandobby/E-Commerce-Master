@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div`
     padding:10px;
     margin-bottom:20px;
 }
+ 
 `;
 
 export const LogoContainer = styled(Link)`
@@ -28,6 +29,11 @@ export const LogoContainer = styled(Link)`
     padding:0;
     padding-top:10px;
 }
+  @media screen and (max-width:300px){
+    width:30px;
+    padding:0;
+    padding-top:10px;
+}
 @media screen and (min-width:1024px){
   svg{
     transform: scale(4.0);
@@ -38,15 +44,15 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const OptionsContainer = styled.div`
-  width: 50%;
+  width: 80%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  @media screen and (max-width:800px){
-    width:80%;
-}
+//   @media screen and (max-width:800px){
+//     width:80%;
+// }
 `;
 
 export const OptionLink = styled(Link)`
@@ -65,14 +71,24 @@ export const OptionLink = styled(Link)`
     transform: scaleX(1);
   }
 
-@media screen and (max-width:1024px) and (min-width:768px) {
-    font-size: 2rem;
-}
-@media screen and (max-width:360px)  {
-  font-size:0.9rem;
-}
+
+
 @media screen and (min-width:1024px)  {
   font-size:2rem;
+}
+@media screen and (max-width:1024px) and (min-width:900px) {
+  font-size: 1.7rem;
+}
+@media screen and (max-width:900px) and (min-width:650px) {
+  font-size: 1.3rem;
+}
+@media screen and (max-width:650px) and (min-width:500px) {
+  font-size: 1.0rem;
+}
+@media screen and (max-width:400px){
+  white-space: nowrap;
+  font-size: 0.85rem;
+  padding: 10px 10px;
 }
   
 `;
