@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./contact.styles.scss";
+import "./contact.styles.css";
 import { addEmailMessage } from "../../firebase/firebase.utils";
 import Popup from "../../components/popup-message/pop-up.component";
 
@@ -96,16 +96,16 @@ const Contact = () => {
       </h1>
       <div className="wrapper animated bounceInLeft">
         <div className="company-info">
-          <h3>Acme Web Design</h3>
+          <h3 className="leftForm-title">Acme Web Design</h3>
           <ul>
             <li>
-              <i className="fa fa-road"></i> 44 Something st
+              <i className="fa fa-road fa-2x"></i> <span className="leftForm-text">44 Something st</span>
             </li>
             <li>
-              <i className="fa fa-phone"></i> (555) 555-5555
+              <i className="fa fa-phone fa-2x"></i> <span className="leftForm-text">(555) 555-5555</span> 
             </li>
             <li>
-              <i className="fa fa-envelope"></i> test@acme.test
+              <i className="fa fa-envelope fa-2x"></i> <span className="leftForm-text">test@acme.test</span> 
             </li>
           </ul>
         </div>
@@ -114,7 +114,7 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <p>
               <label>
-                Name* <span className="errorMsg">{nError}</span>
+               <span className="form-bald">Name*</span> <span className="errorMsg">{nError}</span>
               </label>
               <input type="text" name="name" onChange={handleChange} />
             </p>
@@ -124,7 +124,7 @@ const Contact = () => {
             </p>
             <p>
               <label>
-                Email Address* <span className="errorMsg">{eError}</span>
+              <span className="form-bald">Email Address*</span> <span className="errorMsg">{eError}</span>
               </label>
               <input type="email" name="email" onChange={handleChange} />
             </p>
@@ -134,7 +134,7 @@ const Contact = () => {
             </p>
             <p className="full">
               <label>
-                Message* <span className="errorMsg">{mError}</span>
+              <span className="form-bald">Message*</span> <span className="errorMsg">{mError}</span>
               </label>
               <textarea
                 name="message"

@@ -6,9 +6,12 @@
 body {
   background: #fff;
   color: #485e74;
-  line-height: 1.6;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 1em;
+  
+  
+  
+}
+.form-bald{
+  font-weight: bold;
 }
 
 .errorMsg {
@@ -40,8 +43,10 @@ ul {
 .wrapper {
   bborder-radius: 62px;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  -webkit-box-shadow: 8px 8px 11px #cfcfcf,  -8px -8px 11px #ffffff;
-          box-shadow: 8px 8px 11px #cfcfcf,  -8px -8px 11px #ffffff;
+  -webkit-box-shadow: 8px 8px 11px #cfcfcf, 
+ -8px -8px 11px #ffffff;
+          box-shadow: 8px 8px 11px #cfcfcf, 
+ -8px -8px 11px #ffffff;
 }
 
 .wrapper > * {
@@ -102,6 +107,13 @@ ul {
   outline: 0;
   -webkit-transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
+}
+.leftForm-title{
+  font-size: 2em;
+}
+
+.leftForm-text{
+  font-size: 2em;
 }
 
 /* LARGE SCREENS */
