@@ -4,9 +4,13 @@ export const SignInContainer = styled.div`
   width: 380px;
   display: flex;
   flex-direction: column;
-
+  
   @media screen and (max-width: 800px) {
     width:unset;
+  }
+  @media screen and (max-width: 300px) {
+    width:100vw;
+    padding:10px;
   }
 `;
 
@@ -17,4 +21,8 @@ export const SignInTitle = styled.h2`
 export const ButtonsBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  
+  @media screen and (max-width: 400px) {
+    flex-direction:column;
+  }
 `;
