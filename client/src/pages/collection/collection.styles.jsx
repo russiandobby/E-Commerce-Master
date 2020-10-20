@@ -20,17 +20,17 @@ export const CollectionItemsContainer = styled.div`
   & > div {
     margin-bottom: 30px;
   }
-  @media screen and (max-width:900px){
+  @media screen and (max-width:1100px){
     grid-template-columns: 1fr 1fr 1fr;
     
   }
 
-  @media screen and (max-width:600px){
+  @media screen and (max-width:800px){
     grid-template-columns: 1fr 1fr;
     
   }
 
-  @media screen and (max-width:320px){
+  @media screen and (max-width:300px){
     grid-template-columns: 1fr;
     
   }

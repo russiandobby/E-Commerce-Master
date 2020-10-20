@@ -25,8 +25,12 @@ export const CollectionItemContainer = styled.div`
     }
   }
 
+
+  @media screen and (max-width: 1100px) {
+    width: 28vw;
+  }
   @media screen and (max-width: 900px) {
-    width: 30vw;
+    width: 28vw;
 
     &:hover {
       .image {
@@ -39,11 +43,14 @@ export const CollectionItemContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     width: 40vw;
   }
   @media screen and (max-width: 320px) {
     width: 40vw;
+  }
+  @media screen and (max-width: 300px) {
+    width: 80vw;
   }
 `;
 
