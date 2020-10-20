@@ -48,7 +48,7 @@ export const CollectionItemContainer = styled.div`
     width:40vw;
   }
   @media screen and (max-width:320px){
-    width:80vw;
+    width:40vw;
   }
 
 
