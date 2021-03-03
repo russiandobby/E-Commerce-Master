@@ -6,12 +6,9 @@
 body {
   background: #fff;
   color: #485e74;
-  
-  
-  
-}
-.form-bald{
-  font-weight: bold;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1em;
 }
 
 .errorMsg {
@@ -41,12 +38,10 @@ ul {
 }
 
 .wrapper {
-  border-radius: 62px;
+  bborder-radius: 62px;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  -webkit-box-shadow: 8px 8px 11px #cfcfcf, 
- -8px -8px 11px #ffffff;
-          box-shadow: 8px 8px 11px #cfcfcf, 
- -8px -8px 11px #ffffff;
+  -webkit-box-shadow: 8px 8px 11px #cfcfcf,  -8px -8px 11px #ffffff;
+          box-shadow: 8px 8px 11px #cfcfcf,  -8px -8px 11px #ffffff;
 }
 
 .wrapper > * {
@@ -108,13 +103,6 @@ ul {
   -webkit-transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
 }
-.leftForm-title{
-  font-size: 2em;
-}
-
-.leftForm-text{
-  font-size: 2em;
-}
 
 /* LARGE SCREENS */
 @media (min-width: 700px) {
@@ -131,27 +119,4 @@ ul {
     text-align: left;
   }
 }
-@media screen and (min-width: 700px) and (max-width:970px) {
-  .leftForm-text{
-    font-size: 1em;
-  }
-  .fa{
-    font-size: 1em;
-  }
-  .leftForm-title{
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 300px){
-  .leftForm-text{
-    font-size: 1em;
-  }
-  .fa{
-    font-size: 1em;
-  }
-  .leftForm-title{
-    font-size: 1.5em;
-  }
-}
-
 /*# sourceMappingURL=contact.styles.css.map */
