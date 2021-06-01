@@ -14,6 +14,9 @@ REACT/NODEJS/STYLED COMPONENTS/REDUX/FIREBASE/STRIPE
 ## Summary
 This is an E-Commerce site  that uses styled components for styling. Redux(with sagas) for state managment and Firebase for backend and hosting.
 
+## Live Version
+https://ec-store.herokuapp.com/
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
